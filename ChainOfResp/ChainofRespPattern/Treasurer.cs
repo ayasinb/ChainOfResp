@@ -25,8 +25,8 @@ namespace ChainOfResp.ChainofRespPattern
             else if(NextApprover!=null)
             {
                 CustomerProcess customerProcess=new CustomerProcess();
-                customerProcess.Name = customerProcess.Name;
-                customerProcess.Amount = customerProcess.Amount;
+                customerProcess.Name = customerViewModel.Name;
+                customerProcess.Amount = customerViewModel.Amount;
                 customerProcess.EmployeeName= "Yasin Baltaoğlu";
                 customerProcess.Description = "Talep edilen tutar veznedar tarafından ödenemedi, işlem şube müdür yard. aktarıldı.";
                 _context.CustomerProcess.Add(customerProcess);
