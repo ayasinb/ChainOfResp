@@ -17,8 +17,8 @@ namespace ChainOfResp.ChainofRespPattern
             CustomerProcess customerProcess = new CustomerProcess();
             customerProcess.Name = customerViewModel.Name;
             customerProcess.Amount = customerViewModel.Amount;
-            customerProcess.EmployeeName = customerViewModel.EmployeeName;
-            customerProcess.Description = customerViewModel.Description;
+            customerProcess.EmployeeName = "Yasin Baltaoğlu";
+            customerProcess.Description = "Talep edilen tutar veznedar tarafından ödendi";
             _context.CustomerProcess.Add(customerProcess);
             _context.SaveChanges();
             }
