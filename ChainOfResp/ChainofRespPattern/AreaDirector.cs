@@ -3,38 +3,37 @@ using ChainOfResp.Models;
 
 namespace ChainOfResp.ChainofRespPattern
 {
-    public class Manager:Employee
+    public class AreaDirector:Employee
     {
         private readonly Context _context;
 
-        public Manager(Context context)
+        public AreaDirector(Context context)
         {
             _context = context;
         }
 
         public override void ProcessRequest(CustomerViewModel customerViewModel)
         {
-            if (customerViewModel.Amount <= 250000)
+            if (customerViewModel.Amount <= 360000)
             {
                 CustomerProcess customerProcess = new CustomerProcess();
                 customerProcess.Name = customerViewModel.Name;
                 customerProcess.Amount = customerViewModel.Amount;
-                customerProcess.EmployeeName = "Murat Yücedağ";
-                customerProcess.Description = "Talep edilen tutar şube müdürü tarafından ödendi.";
+                customerProcess.EmployeeName = "Talha Yıldız";
+                customerProcess.Description = "Talep edilen tutar bölge müdürü tarafından ödendi.";
                 _context.CustomerProcess.Add(customerProcess);
                 _context.SaveChanges();
             }
 
-            else if (NextApprover != null)
+            else
             {
                 CustomerProcess customerProcess = new CustomerProcess();
                 customerProcess.Name = customerViewModel.Name;
                 customerProcess.Amount = customerViewModel.Amount;
-                customerProcess.EmployeeName = "Murat Yücedağ";
-                customerProcess.Description = "Talep edilen tutar şube müdürü tarafından ödenemedi, işlem bölge müdürüne aktarıldı.";
+                customerProcess.EmployeeName = "Talha Yıldız";
+                customerProcess.Description = "Talep edilen tutar bölge müdürü tarafından ödenemedi, işlem gerçekleşmedi.";
                 _context.CustomerProcess.Add(customerProcess);
                 _context.SaveChanges();
-                NextApprover.ProcessRequest(customerViewModel);
             }
 
         }
